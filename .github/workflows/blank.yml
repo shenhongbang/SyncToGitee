@@ -22,13 +22,12 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       # - uses: actions/checkout@v2
-
-      - uses: wearerequired/git-mirror-action@master
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.GITEE_KEY }}
           
       # Runs a single command using the runners shell
       - name: SyncToGite
+        uses: wearerequired/git-mirror-action@master
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.GITEE_KEY }}
         with:
           source-repo: "git@github.com:onevcat/Kingfisher.git"
           destination-repo: "git@gitee.com:jiutianhuanpei/kingfisher.git"
